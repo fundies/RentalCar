@@ -13,15 +13,13 @@ import static org.junit.Assert.*;
  * @author Greg Williamson
  * @version 0.1
  */
-public class RentalCarTest
-{   
+public class RentalCarTest {
     private int preValue;
-    
+
     /**
-     * Default Constructor
+     * Default Constructor.
      */
-    public RentalCarTest()
-    {
+    public RentalCarTest() {
         preValue = 0;
     }
 
@@ -29,8 +27,7 @@ public class RentalCarTest
      * Test of numAvailable method, of class RentalCar.
      */
     @Test
-    public void testNumAvailable()
-    {
+    public final void testNumAvailable() {
         System.out.println("numAvailable");
         preValue = RentalCar.numAvailable();
         new RentalCar();
@@ -41,8 +38,7 @@ public class RentalCarTest
      * Test of numRented method, of class RentalCar.
      */
     @Test
-    public void testNumRented()
-    {
+    public final void testNumRented() {
         System.out.println("numRented");
         preValue = RentalCar.numRented();
         RentalCar instance = new RentalCar();
@@ -54,8 +50,7 @@ public class RentalCarTest
      * Test of rentCar method, of class RentalCar.
      */
     @Test
-    public void testRentCar()
-    {
+    public final void testRentCar() {
         System.out.println("numRented");
         preValue = RentalCar.numRented();
         RentalCar instance = new RentalCar();
@@ -67,19 +62,18 @@ public class RentalCarTest
      * Test of returnCar method, of class RentalCar.
      */
     @Test
-    public void testReturnCar()
-    {
+    public final void testReturnCar() {
         System.out.println("returnCar");
         RentalCar instance = new RentalCar();
         instance.rentCar();
         preValue = RentalCar.numRented();
         instance.returnCar();
         assertEquals(RentalCar.numRented(), preValue - 1);
-        
+
         RentalCar car = new RentalCar();
         boolean expResult2 = true;
         boolean result2 = car.returnCar();
-       
+
         assertEquals(expResult2, result2);
     }
 
@@ -87,20 +81,19 @@ public class RentalCarTest
      * Test of check method, of class RentalCar.
      */
     @Test
-    public void testCheck()
-    {
+    public final void testCheck() {
         System.out.println("check");
-        
+
         int preRent = RentalCar.numRented();
         int preAvail = RentalCar.numAvailable();
-        
+
         RentalCar.check(10);
-        
+
         int expRent = preRent + 4;
         int expAvail = preAvail + 6;
-        
+
         assertEquals(expRent, RentalCar.numRented());
         assertEquals(expAvail, RentalCar.numAvailable());
     }
-    
+
 }
